@@ -1,9 +1,11 @@
 package com.jacek.meety.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.annotations.Type;
+
+import java.sql.Types;
+import java.util.List;
 
 @Entity(name = "speakers")
 public class Speaker {
@@ -15,6 +17,13 @@ public class Speaker {
     private String title;
     private String company;
     private String speaker_bio;
+
+    @Lob
+    @JdbcTypeCode(Types.BINARY)
+    private byte[] speaker_photo;
+
+    @ManyToMany(mappedBy = "speakers")
+    private List<Session> sessions;
 
     public Speaker() {}
 
@@ -64,5 +73,21 @@ public class Speaker {
 
     public void setSpeaker_bio(String speaker_bio) {
         this.speaker_bio = speaker_bio;
+    }
+
+    public List<Session> getSessions() {
+        return sessions;
+    }
+
+    public void setSessions(List<Session> sessions) {
+        this.sessions = sessions;
+    }
+
+    public byte[] getSpeaker_photo() {
+        return speaker_photo;
+    }
+
+    public void setSpeaker_photo(byte[] speaker_photo) {
+        this.speaker_photo = speaker_photo;
     }
 }
