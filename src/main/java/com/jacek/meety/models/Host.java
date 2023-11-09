@@ -8,34 +8,34 @@ import org.hibernate.annotations.JdbcTypeCode;
 import java.sql.Types;
 import java.util.List;
 
-@Entity(name = "speakers")
+@Entity(name = "hosts")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Speaker {
+public class Host {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long speaker_id;
+    private Long host_id;
     private String first_name;
     private String last_name;
     private String title;
     private String company;
-    private String speaker_bio;
+    private String host_bio;
 
     @Lob
     @JdbcTypeCode(Types.BINARY)
-    private byte[] speaker_photo;
+    private byte[] host_photo;
 
-    @ManyToMany(mappedBy = "speakers")
+    @ManyToMany(mappedBy = "hosts")
     @JsonIgnore
-    private List<Session> sessions;
+    private List<Appointment> appointments;
 
-    public Speaker() {}
+    public Host() {}
 
-    public Long getSpeaker_id() {
-        return speaker_id;
+    public Long getHost_id() {
+        return host_id;
     }
 
-    public void setSpeaker_id(Long speaker_id) {
-        this.speaker_id = speaker_id;
+    public void setHost_id(Long host_id) {
+        this.host_id = host_id;
     }
 
     public String getFirst_name() {
@@ -70,27 +70,27 @@ public class Speaker {
         this.company = company;
     }
 
-    public String getSpeaker_bio() {
-        return speaker_bio;
+    public String getHost_bio() {
+        return host_bio;
     }
 
-    public void setSpeaker_bio(String speaker_bio) {
-        this.speaker_bio = speaker_bio;
+    public void setHost_bio(String host_bio) {
+        this.host_bio = host_bio;
     }
 
-    public List<Session> getSessions() {
-        return sessions;
+    public List<Appointment> getAppointments() {
+        return appointments;
     }
 
-    public void setSessions(List<Session> sessions) {
-        this.sessions = sessions;
+    public void setAppointments(List<Appointment> appointments) {
+        this.appointments = appointments;
     }
 
-    public byte[] getSpeaker_photo() {
-        return speaker_photo;
+    public byte[] getHost_photo() {
+        return host_photo;
     }
 
-    public void setSpeaker_photo(byte[] speaker_photo) {
-        this.speaker_photo = speaker_photo;
+    public void setHost_photo(byte[] host_photo) {
+        this.host_photo = host_photo;
     }
 }

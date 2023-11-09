@@ -1,6 +1,6 @@
 INSERT INTO ticket_types (ticket_type_code,ticket_type_name,description,includes_workshop)
 VALUES ('P','Premium','Access to all conference events plus attend the workshop of your choice.',TRUE),
-       ('S','Standard','Access to all conference keynotes,sessions,community open spaces and the exhibition hall',FALSE),
+       ('S','Standard','Access to all conference keynotes,appointments,community open spaces and the exhibition hall',FALSE),
        ('C','Community','Access to keynotes,community open spaces and the exhibition hall',FALSE);
 
 INSERT INTO pricing_categories (pricing_category_code,pricing_category_name,pricing_start_date,pricing_end_date)
@@ -35,7 +35,7 @@ VALUES (1,'2020-04-09','9:00','9:45',TRUE),
        (11,'2020-04-10','13:00','14:00',FALSE),
        (12,'2020-04-10','14:15','15:00',TRUE);
 
-INSERT INTO sessions (session_id,session_name,session_length,session_description)
+INSERT INTO appointments (appointment_id,appointment_name,appointment_length,appointment_description)
 VALUES (1,'Keynote - The Golden Age of Software',45,''),
        (2,'A Better Way to Access Data with Spring Data',60,''),
        (3,'A Deep Dive Into Spring IoC',60,''),
@@ -108,7 +108,7 @@ VALUES (1,'Keynote - The Golden Age of Software',45,''),
        (90,'Communication Skills for the Technology Professional',30,''),
        (91,'Personal Kanban',30,'');
 
-INSERT INTO session_schedule (schedule_id,time_slot_id,session_id,room)
+INSERT INTO appointment_schedule (schedule_id,time_slot_id,appointment_id,room)
 VALUES (1,1,1,'Grand Ballroom'),
        (2,2,2,'Cedar'),
        (3,4,3,'Cedar'),
@@ -195,9 +195,9 @@ VALUES (1,'.NET'),
        (11,'Agile'),
        (12,'Cloud');
 
--- TODO: session_tags
+-- TODO: appointment_tags
 
-INSERT INTO speakers (speaker_id,first_name,last_name,title,company,speaker_bio,speaker_photo)
+INSERT INTO hosts (host_id,first_name,last_name,title,company,host_bio,host_photo)
 VALUES (1,'Sergio','Becker','Senior Developer','MicroOcean Software','Test', null),
        (2,'James','Lowrey','Solutions Architect','Fabrikam Industries','Test', null),
        (3,'Gloria','Franklin','Enerprise Architect','Carved Rock Online','Test', null),
@@ -239,7 +239,7 @@ VALUES (1,'Sergio','Becker','Senior Developer','MicroOcean Software','Test', nul
        (39,'James','King','Staff AWS Engineer','Northern States Bank','Test', null),
        (40,'Simon','Williams','Chief Technology Officer','NorthernSoft Systems','Test', null);
 
-INSERT INTO session_speakers (session_id,speaker_id)
+INSERT INTO appointment_hosts (appointment_id,host_id)
 VALUES (1,40),
        (2,4),
        (3,5),
@@ -326,15 +326,15 @@ VALUES (1,'More Effective Agile Practices','','','Cedar',50),
        (11,'Hands on Vue.js','','','Ash',40),
        (12,'Building APIs in ASP.NET Core','','','Oak',30);
 
--- TODO: workshop_speakers
+-- TODO: workshop_hosts
 
 
 select setval('attendees_attendee_id_seq',COALESCE((select max(attendee_id) + 1 from attendees), 1));
 select setval('attendee_tickets_attendee_ticket_id_seq',COALESCE((select max(attendee_ticket_id) + 1 from attendee_tickets), 1));
 select setval('discount_codes_discount_code_id_seq',COALESCE((select max(discount_code_id) + 1 from discount_codes), 1));
-select setval('session_schedule_schedule_id_seq',COALESCE((select max(schedule_id) + 1 from session_schedule), 1));
-select setval('sessions_session_id_seq',COALESCE((select max(session_id) + 1 from sessions), 1));
-select setval('speakers_speaker_id_seq',COALESCE((select max(speaker_id) + 1 from speakers), 1));
+select setval('appointment_schedule_schedule_id_seq',COALESCE((select max(schedule_id) + 1 from appointment_schedule), 1));
+select setval('appointments_appointment_id_seq',COALESCE((select max(appointment_id) + 1 from appointments), 1));
+select setval('hosts_host_id_seq',COALESCE((select max(host_id) + 1 from hosts), 1));
 select setval('tags_tag_id_seq',COALESCE((select max(tag_id) + 1 from tags), 1));
 select setval('ticket_prices_ticket_price_id_seq',COALESCE((select max(ticket_price_id) + 1 from ticket_prices), 1));
 select setval('time_slots_time_slot_id_seq',COALESCE((select max(time_slot_id) + 1 from time_slots), 1));
