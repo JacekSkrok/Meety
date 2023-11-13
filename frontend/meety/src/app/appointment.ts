@@ -1,6 +1,6 @@
 export interface Appointment {
   id: number;
   appointment_name: string;
-  description: string;
+  appointment_description: string;
   length: number;
 }
