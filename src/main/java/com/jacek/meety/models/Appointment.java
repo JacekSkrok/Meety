@@ -27,7 +27,7 @@ public class Appointment {
         return appointment_id;
     }
 
-    public void setAppointment_id(Long session_id) {
+    public void setAppointment_id(Long appointment_id) {
         this.appointment_id = appointment_id;
     }
 
@@ -35,15 +35,16 @@ public class Appointment {
         return appointment_name;
     }
 
-    public void setAppointment_name(String session_name) {
+    public void setAppointment_name(String appointment_name) {
         this.appointment_name = appointment_name;
     }
+    
 
     public String getAppointment_description() {
         return appointment_description;
     }
 
-    public void setAppointment_description(String session_description) {
+    public void setAppointment_description(String appointment_description) {
         this.appointment_description = appointment_description;
     }
 
@@ -51,7 +52,7 @@ public class Appointment {
         return appointment_length;
     }
 
-    public void setAppointment_length(Integer session_length) {
+    public void setAppointment_length(Integer appointment_length) {
         this.appointment_length = appointment_length;
     }
 
