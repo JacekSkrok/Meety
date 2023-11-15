@@ -27,7 +27,7 @@ public class HostsController {
     }
 
     @PostMapping
-    public Host create(final Host host) {
+    public Host create(@RequestBody final Host host) {
         return hostRepository.saveAndFlush(host);
     }
 
