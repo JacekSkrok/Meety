@@ -10,10 +10,10 @@ import java.util.List;
 public class Appointment {
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private Long appointment_id;
-    private String appointment_name;
-    private String appointment_description;
-    private Integer appointment_length;
+    private Long appointmentId;
+    private String appointmentName;
+    private String appointmentDescription;
+    private Integer appointmentLength;
 
     @ManyToMany
     @JoinTable(
@@ -23,37 +23,37 @@ public class Appointment {
     private List<Host> hosts;
     public Appointment() {}
 
-    public Long getAppointment_id() {
-        return appointment_id;
+    public Long getAppointmentId() {
+        return appointmentId;
     }
 
-    public void setAppointment_id(Long appointment_id) {
-        this.appointment_id = appointment_id;
+    public void setAppointmentId(Long appointmentId) {
+        this.appointmentId = appointmentId;
     }
 
-    public String getAppointment_name() {
-        return appointment_name;
+    public String getAppointmentName() {
+        return appointmentName;
     }
 
-    public void setAppointment_name(String appointment_name) {
-        this.appointment_name = appointment_name;
+    public void setAppointmentName(String appointmentName) {
+        this.appointmentName = appointmentName;
     }
     
 
-    public String getAppointment_description() {
-        return appointment_description;
+    public String getAppointmentDescription() {
+        return appointmentDescription;
     }
 
-    public void setAppointment_description(String appointment_description) {
-        this.appointment_description = appointment_description;
+    public void setAppointmentDescription(String appointmentDescription) {
+        this.appointmentDescription = appointmentDescription;
     }
 
-    public Integer getAppointment_length() {
-        return appointment_length;
+    public Integer getAppointmentLength() {
+        return appointmentLength;
     }
 
-    public void setAppointment_length(Integer appointment_length) {
-        this.appointment_length = appointment_length;
+    public void setAppointmentLength(Integer appointmentLength) {
+        this.appointmentLength = appointmentLength;
     }
 
     public List<Host> getSpeakers() {

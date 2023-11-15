@@ -13,16 +13,16 @@ import java.util.List;
 public class Host {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long host_id;
-    private String first_name;
-    private String last_name;
+    private Long hostId;
+    private String firstName;
+    private String lastName;
     private String title;
     private String company;
-    private String host_bio;
+    private String hostBio;
 
     @Lob
     @JdbcTypeCode(Types.BINARY)
-    private byte[] host_photo;
+    private byte[] hostPhoto;
 
     @ManyToMany(mappedBy = "hosts")
     @JsonIgnore
@@ -30,28 +30,28 @@ public class Host {
 
     public Host() {}
 
-    public Long getHost_id() {
-        return host_id;
+    public Long getHostId() {
+        return hostId;
     }
 
-    public void setHost_id(Long host_id) {
-        this.host_id = host_id;
+    public void setHostId(Long hostId) {
+        this.hostId = hostId;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getTitle() {
@@ -70,12 +70,12 @@ public class Host {
         this.company = company;
     }
 
-    public String getHost_bio() {
-        return host_bio;
+    public String getHostBio() {
+        return hostBio;
     }
 
-    public void setHost_bio(String host_bio) {
-        this.host_bio = host_bio;
+    public void setHostBio(String hostBio) {
+        this.hostBio = hostBio;
     }
 
     public List<Appointment> getAppointments() {
@@ -86,11 +86,11 @@ public class Host {
         this.appointments = appointments;
     }
 
-    public byte[] getHost_photo() {
-        return host_photo;
+    public byte[] getHostPhoto() {
+        return hostPhoto;
     }
 
-    public void setHost_photo(byte[] host_photo) {
-        this.host_photo = host_photo;
+    public void setHostPhoto(byte[] hostPhoto) {
+        this.hostPhoto = hostPhoto;
     }
 }

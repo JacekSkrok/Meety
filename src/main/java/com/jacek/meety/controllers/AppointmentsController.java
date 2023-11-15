@@ -40,7 +40,7 @@ public class AppointmentsController {
     public Appointment update(@PathVariable Long id, @RequestBody Appointment appointment) {
         //TODO: check if all data for Appointment were provided
         Appointment existingAppointment = appointmentRepository.getReferenceById(id);
-        BeanUtils.copyProperties(appointment, existingAppointment, "appointment_id");
+        BeanUtils.copyProperties(appointment, existingAppointment, "appointmentId");
         return appointmentRepository.saveAndFlush(existingAppointment);
     }
 

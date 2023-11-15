@@ -40,7 +40,7 @@ public class HostsController {
     public Host update(@PathVariable Long id, @RequestBody Host host) {
         //TODO: check if all data for Host were provided
         Host existingHost = hostRepository.getReferenceById(id);
-        BeanUtils.copyProperties(host, existingHost, "host_id");
+        BeanUtils.copyProperties(host, existingHost, "hostId");
         return hostRepository.saveAndFlush(existingHost);
     }
 
