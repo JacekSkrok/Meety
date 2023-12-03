@@ -1,26 +1,3 @@
-INSERT INTO ticket_types (ticket_type_code,ticket_type_name,description,includes_workshop)
-VALUES ('P','Premium','Access to all conference events plus attend the workshop of your choice.',TRUE),
-       ('S','Standard','Access to all conference keynotes,appointments,community open spaces and the exhibition hall',FALSE),
-       ('C','Community','Access to keynotes,community open spaces and the exhibition hall',FALSE);
-
-INSERT INTO pricing_categories (pricing_category_code,pricing_category_name,pricing_start_date,pricing_end_date)
-VALUES ('E','Early Bird','2019-12-01','2020-01-15'),
-       ('R','Regular','2020-01-16','2020-03-20'),
-       ('L','Last Minute','2020-03-21','2020-04-07');
-
-INSERT INTO ticket_prices (ticket_price_id,ticket_type_code,pricing_category_code,base_price)
-VALUES (1,'P','E',800),
-       (2,'P','R',1000),
-       (3,'P','L',1200),
-       (4,'S','E',500),
-       (5,'S','R',700),
-       (6,'S','L',1000),
-       (7,'C','E',100),
-       (8,'C','R',200),
-       (9,'C','L',300);
-
--- TODO: discount_codes
-
 INSERT INTO time_slots (time_slot_id,time_slot_date,start_time,end_time,is_keynote_time_slot)
 VALUES (1,'2020-04-09','9:00','9:45',TRUE),
        (2,'2020-04-09','10:00','11:00',FALSE),
@@ -195,8 +172,6 @@ VALUES (1,'.NET'),
        (11,'Agile'),
        (12,'Cloud');
 
--- TODO: appointment_tags
-
 INSERT INTO hosts (host_id,first_name,last_name,title,company,host_bio,host_photo)
 VALUES (1,'Sergio','Becker','Senior Developer','MicroOcean Software','Test', null),
        (2,'James','Lowrey','Solutions Architect','Fabrikam Industries','Test', null),
@@ -311,23 +286,6 @@ VALUES (1,40),
        (89,37),
        (90,14),
        (91,35);
-
-INSERT INTO workshops (workshop_id,workshop_name,description,requirements,room,capacity)
-VALUES (1,'More Effective Agile Practices','','','Cedar',50),
-       (2,'Azure DevOps One Day Bootcamp','','','Cherry',50),
-       (3,'Level Up Your Architecure Skills','','','Maple',20),
-       (4,'Building Microservices with Spring','','','Aspen',30),
-       (5,'SQL Server Performance Tuning','','','Hickory',40),
-       (6,'Serverless Architectures Using AWS','','','Cottonwood',30),
-       (7,'Architecting Large Scale React Applications','','','Sycamore',30),
-       (8,'Machine Learning Quick Start','','','Chestnut',40),
-       (9,'Data Analytics with Tableau','','','Poplar',40),
-       (10,'Python for Enterprise Developers','','','Birch',40),
-       (11,'Hands on Vue.js','','','Ash',40),
-       (12,'Building APIs in ASP.NET Core','','','Oak',30);
-
--- TODO: workshop_hosts
-
 
 select setval('attendees_attendee_id_seq',COALESCE((select max(attendee_id) + 1 from attendees), 1));
 select setval('attendee_tickets_attendee_ticket_id_seq',COALESCE((select max(attendee_ticket_id) + 1 from attendee_tickets), 1));
