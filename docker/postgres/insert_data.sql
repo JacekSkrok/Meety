@@ -288,12 +288,8 @@ VALUES (1,40),
        (91,35);
 
 select setval('attendees_attendee_id_seq',COALESCE((select max(attendee_id) + 1 from attendees), 1));
-select setval('attendee_tickets_attendee_ticket_id_seq',COALESCE((select max(attendee_ticket_id) + 1 from attendee_tickets), 1));
-select setval('discount_codes_discount_code_id_seq',COALESCE((select max(discount_code_id) + 1 from discount_codes), 1));
 select setval('appointment_schedule_schedule_id_seq',COALESCE((select max(schedule_id) + 1 from appointment_schedule), 1));
 select setval('appointments_appointment_id_seq',COALESCE((select max(appointment_id) + 1 from appointments), 1));
 select setval('hosts_host_id_seq',COALESCE((select max(host_id) + 1 from hosts), 1));
 select setval('tags_tag_id_seq',COALESCE((select max(tag_id) + 1 from tags), 1));
-select setval('ticket_prices_ticket_price_id_seq',COALESCE((select max(ticket_price_id) + 1 from ticket_prices), 1));
 select setval('time_slots_time_slot_id_seq',COALESCE((select max(time_slot_id) + 1 from time_slots), 1));
-select setval('workshops_workshop_id_seq',COALESCE((select max(workshop_id) + 1 from workshops), 1));
