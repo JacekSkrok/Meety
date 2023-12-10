@@ -9,14 +9,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
 @RestController
 @RequestMapping("/api/v1/appointments")
 public class AppointmentsController {
-    Logger logger = Logger.getLogger(AppointmentsController.class.getName());
     @Autowired
     private AppointmentRepository appointmentRepository;
 
@@ -30,8 +27,7 @@ public class AppointmentsController {
     public ResponseEntity<Appointment> get(@PathVariable Long id) throws ResourceNotFoundException {
         Appointment appointment = appointmentRepository
                 .findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("User with ID" + id +" not found"));
-                logger.log(Level.WARNING, "User with ID" + id +" not found");
+                .orElseThrow(() -> new ResourceNotFoundException("User with ID " + id +" not found"));
         return ResponseEntity.ok().body(appointment);
     }
 
