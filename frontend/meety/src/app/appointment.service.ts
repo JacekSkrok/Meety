@@ -16,4 +16,6 @@ export class AppointmentService {
 
     return this.http.get<Appointment[]>(`${this.apiServerUrl}/api/v1/appointments`);
   }
+
+
 }

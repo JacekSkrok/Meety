@@ -9,14 +9,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
 @RestController
 @RequestMapping("/api/v1/appointments")
 public class AppointmentsController {
-    Logger logger = Logger.getLogger(AppointmentsController.class.getName());
     @Autowired
     private AppointmentRepository appointmentRepository;
 
@@ -30,8 +27,7 @@ public class AppointmentsController {
     public ResponseEntity<Appointment> get(@PathVariable Long id) throws ResourceNotFoundException {
         Appointment appointment = appointmentRepository
                 .findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("User with ID" + id +" not found"));
-                logger.log(Level.WARNING, "User with ID" + id +" not found");
+                .orElseThrow(() -> new ResourceNotFoundException("User with ID " + id +" not found"));
         return ResponseEntity.ok().body(appointment);
     }
 
@@ -47,11 +43,20 @@ public class AppointmentsController {
     }
 
     @RequestMapping(value = "{id}", method = RequestMethod.PUT)
-    public Appointment update(@PathVariable Long id, @RequestBody Appointment appointment) {
-        //TODO: check if all data for Appointment were provided
-        Appointment existingAppointment = appointmentRepository.getReferenceById(id);
-        BeanUtils.copyProperties(appointment, existingAppointment, "appointmentI0d");
-        return appointmentRepository.saveAndFlush(existingAppointment);
+    public ResponseEntity<Appointment> update(@PathVariable Long id, @RequestBody Appointment appointment) throws ResourceNotFoundException {
+        if(appointment.getAppointmentLength() != null && appointment.getAppointmentName() != null) {
+            appointmentRepository.findById(id).map(existingAppointment -> {
+                        existingAppointment.setAppointmentName(appointment.getAppointmentName());
+                        existingAppointment.setAppointmentLength(appointment.getAppointmentLength());
+                        existingAppointment.setAppointmentDescription(appointment.getAppointmentDescription());
+                        return appointmentRepository.save(existingAppointment);
+                    })
+                    .orElseThrow(() -> new ResourceNotFoundException("User with ID " + id +" not found"));
+        }
+        else {
+            throw new ResourceNotFoundException("No sufficent data provided");
+        }
+        return ResponseEntity.ok().body(appointment);
     }
 
 
