@@ -55,18 +55,19 @@ VALUES (1,'Programming'),
        (12,'Animals');
 
 INSERT INTO hosts (host_id,first_name,last_name,title,company,host_bio,host_photo)
-VALUES (1,'Sergio','Becker','Senior Developer','MicroOcean Software','Test', null),
-       (2,'James','Lowrey','Solutions Architect','Fabrikam Industries','Test', null),
-       (3,'Gloria','Franklin','Enerprise Architect','Carved Rock Online','Test', null),
-       (4,'Lori','Vanhoose','Java Technical Lead','National Bank','Test', null),
-       (5,'Raymond','Hall','Senior Developer','City Power and Electric','Test', null),
-       (6,'Sam','Vasquez','Software Analyst','Globalmantics Consulting','Test', null),
-       (7,'Justin','Clark','Principal Engineer','Tangerine Hippopotamus Consulting','Test', null),
-       (8,'Barbara','Williams','Senior DBA','Contoso','Test', null),
-       (9,'James','Sharp','Technical Lead','Adventureworks','Test', null),
-       (10,'Julie','Rowe','Software Architect','Northwind Trading','Test', null),
-       (11,'Tonya','Burke','Senior Cloud Consultant','Big Data Consulting','Test', null),
-       (12,'Nicole','Perry','Pets behaviourist','World Wide Animals','Test', null);
+VALUES (1,'Sergio','Becker','Lead Programmer','CodeCrafters Inc.','Sergio Becker is a Lead Programmer at CodeCrafters Inc., specializing in crafting elegant and efficient software solutions. With a passion for programming and a keen eye for detail, Sergio consistently delivers cutting-edge applications that meet clients needs and exceed expectations.', null),
+       (2,'James','Lowrey','Sports Performance Analyst','Elite Sports Solutions','James Lowrey serves as a Sports Performance Analyst at Elite Sports Solutions, where he leverages data analytics to optimize athlete performance. With a background in sports science and a dedication to helping athletes reach their full potential, James plays a crucial role in driving success on and off the field.', null),
+       (3,'Gloria','Franklin','Social Event Coordinator','Vibrant Connections','Gloria Franklin excels as a Social Event Coordinator at Vibrant Connections, where she orchestrates memorable and engaging social gatherings. With a flair for creativity and a knack for bringing people together, Gloria creates experiences that foster connections and leave a lasting impression.', null),
+       (4,'Lori','Vanhoose','Social Media Manager','Digital Buzz Agency','Lori Vanhoose assumes the role of Social Media Manager at Digital Buzz Agency, where she develops and executes dynamic social media campaigns. With a finger on the pulse of digital trends and a talent for crafting compelling content, Lori helps brands build meaningful connections with their audience online.', null),
+       (5,'Raymond','Hall','Medical Research Scientist','HealthTech Innovations','Raymond Hall serves as a Medical Research Scientist at HealthTech Innovations, where he conducts groundbreaking research to advance the field of medicine. With a passion for innovation and a commitment to improving patient outcomes, Raymond is at the forefront of developing new treatments and therapies.', null),
+       (6,'Sam','Vasquez','Design Director','Creative Edge Studios','Sam Vasquez excels as a Design Director at Creative Edge Studios, where he leads a team of talented designers in creating visually stunning and impactful designs. With a keen aesthetic sense and a dedication to pushing boundaries, Sam transforms ideas into captivating visuals that resonate with audiences.', null),
+       (7,'Justin','Clark','Culinary Innovator','Gourmet Creations','Justin Clark holds the position of Culinary Innovator at Gourmet Creations, where he combines culinary expertise with a passion for innovation to create delicious and inventive dishes. With a focus on quality ingredients and creative techniques, Justin delights palates and inspires culinary exploration.', null),
+       (8,'Barbara','Williams','Fine Arts Painter','Artistry Gallery','Barbara Williams is a renowned Fine Arts Painter at Artistry Gallery, known for her vibrant and expressive paintings. With a mastery of color and form, Barbaras artwork captivates viewers and evokes emotion, making her a celebrated artist in the world of contemporary painting.', null),
+       (9,'James','Sharp','Architectural Designer','Urban Vision Architects','James Sharp assumes the role of Architectural Designer at Urban Vision Architects, where he translates visionary concepts into innovative architectural designs. With a focus on sustainability and functionality, James creates spaces that enhance the built environment and enrich peoples lives.', null),
+       (10,'Julie','Rowe','Illustrator','SketchWorks Studio','Julie Rowe serves as an Illustrator at SketchWorks Studio, where she brings imagination to life through her captivating drawings. With a talent for storytelling and a keen eye for detail, Julie creates illustrations that inspire wonder and ignite the imagination.', null),
+       (11,'Tonya','Burke','Travel Blogger','Wanderlust Journeys','Tonya Burke excels as a Travel Blogger at Wanderlust Journeys, where she shares her adventures and insights from around the globe. With a passion for exploration and a knack for uncovering hidden gems, Tonya inspires fellow travelers to embark on their own unforgettable journeys.', null),
+       (12,'Nicole','Perry','Animal Behavior Specialist','PetPro Solutions','Nicole Perry is an Animal Behavior Specialist at PetPro Solutions, where she utilizes her expertise to promote healthy relationships between pets and their owners. With a background in animal psychology and a passion for animal welfare, Nicole provides valuable insights and guidance to create harmonious environments for pets and their families.', null);
+
 
 INSERT INTO appointment_hosts (appointment_id,host_id)
 VALUES (1,1),
