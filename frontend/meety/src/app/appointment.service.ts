@@ -13,9 +13,6 @@ export class AppointmentService {
   constructor(private http: HttpClient) { }
 
   public getAppointments() : Observable<Appointment[]> {
-
     return this.http.get<Appointment[]>(`${this.apiServerUrl}/api/v1/appointments`);
   }
-
-
 }
