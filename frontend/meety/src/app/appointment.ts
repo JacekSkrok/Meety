@@ -1,6 +1,6 @@
 export interface Appointment {
-  id: number;
-  appointment_name: string;
-  appointment_description: string;
-  length: number;
+  appointmentId: number;
+  appointmentName: string;
+  appointmentDescription: string;
+  appointmentLength: number;
 }

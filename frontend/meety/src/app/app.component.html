@@ -48,18 +48,17 @@
                                             </div>
                                             <div class="meta">
                                                 <div class="hosts">
-                                                    <a href="#">Aslan Lingker</a>
+                                                    <a href="#">{{hostsMap.get(appointment.appointmentId)?.firstName}} {{hostsMap.get(appointment.appointmentId)?.lastName}} </a>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="event-wrap">
-                                                <h3><a href="#">{{appointment.appointment_name}}</a></h3>
+                                                <h3><a href="#">{{appointment.appointmentName}}</a></h3>
                                             </div>
                                             <div class="descriptions">
                                               <p>
-                                                sd
-                                                {{appointment.appointment_description}}
+                                                {{appointment.appointmentDescription}}
                                             </p>
                                             </div>
                                         </td>
