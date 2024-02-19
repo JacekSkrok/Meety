@@ -5,4 +5,5 @@ export interface Host {
   title: string;
   company: string;
   hostBio: string;
+  hostPhoto?: string;
 }
