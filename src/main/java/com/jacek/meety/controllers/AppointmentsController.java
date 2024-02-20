@@ -2,7 +2,10 @@ package com.jacek.meety.controllers;
 
 import com.jacek.meety.exception.ResourceNotFoundException;
 import com.jacek.meety.models.Appointment;
+import com.jacek.meety.models.Host;
 import com.jacek.meety.repositories.AppointmentRepository;
+import com.jacek.meety.repositories.HostRepository;
+import com.jacek.meety.utils.ImageDecoder;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,9 +19,13 @@ import java.util.List;
 public class AppointmentsController {
     @Autowired
     private AppointmentRepository appointmentRepository;
+    @Autowired
+    private HostRepository hostRepository;
 
     @GetMapping
     public List<Appointment> list() {
+        List<Host> hosts = hostRepository.findAll();
+        hosts.forEach(ImageDecoder::decodeImage);
         return appointmentRepository.findAll();
     }
 
@@ -28,6 +35,8 @@ public class AppointmentsController {
         Appointment appointment = appointmentRepository
                 .findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("User with ID " + id +" not found"));
+        List<Host> hosts = hostRepository.findAll();
+        hosts.forEach(ImageDecoder::decodeImage);
         return ResponseEntity.ok().body(appointment);
     }
 
