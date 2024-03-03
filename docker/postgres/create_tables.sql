@@ -19,13 +19,6 @@ CREATE TABLE appointments
     appointment_length      integer                 NOT NULL
 );
 
-CREATE TABLE appointment_schedule
-(
-    schedule_id  SERIAL PRIMARY KEY,
-    time_slot_id integer     NOT NULL REFERENCES time_slots (time_slot_id),
-    appointment_id   integer     NOT NULL REFERENCES appointments (appointment_id),
-    room         varchar(30) NOT NULL
-);
 
 CREATE TABLE tags
 (
