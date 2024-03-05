@@ -9,30 +9,16 @@ CREATE TABLE attendees
     phone_number varchar(20) NULL
 );
 
-CREATE TABLE time_slots
-(
-    time_slot_id         SERIAL PRIMARY KEY,
-    time_slot_date       date                   NOT NULL,
-    start_time           time without time zone NOT NULL,
-    end_time             time without time zone NOT NULL,
-    is_keynote_time_slot boolean default false  NOT NULL
-);
-
 CREATE TABLE appointments
 (
     appointment_id          SERIAL PRIMARY KEY,
-    appointment_name        varchar(80)   NOT NULL,
-    appointment_description varchar(1024) NOT NULL,
-    appointment_length      integer       NOT NULL
+    appointment_name        varchar(80)             NOT NULL,
+    appointment_date        date                    NOT NULL,
+    appointment_start_time  time without time zone  NOT NULL,
+    appointment_description varchar(1024)           NOT NULL,
+    appointment_length      integer                 NOT NULL
 );
 
-CREATE TABLE appointment_schedule
-(
-    schedule_id  SERIAL PRIMARY KEY,
-    time_slot_id integer     NOT NULL REFERENCES time_slots (time_slot_id),
-    appointment_id   integer     NOT NULL REFERENCES appointments (appointment_id),
-    room         varchar(30) NOT NULL
-);
 
 CREATE TABLE tags
 (

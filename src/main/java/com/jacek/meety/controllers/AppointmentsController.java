@@ -6,7 +6,6 @@ import com.jacek.meety.models.Host;
 import com.jacek.meety.repositories.AppointmentRepository;
 import com.jacek.meety.repositories.HostRepository;
 import com.jacek.meety.utils.ImageDecoder;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -56,8 +55,11 @@ public class AppointmentsController {
         if(appointment.getAppointmentLength() != null && appointment.getAppointmentName() != null) {
             appointmentRepository.findById(id).map(existingAppointment -> {
                         existingAppointment.setAppointmentName(appointment.getAppointmentName());
-                        existingAppointment.setAppointmentLength(appointment.getAppointmentLength());
+                        existingAppointment.setAppointmentDate(appointment.getAppointmentDate());
+                        existingAppointment.setAppointmentStartTime(appointment.getAppointmentStartTime());
                         existingAppointment.setAppointmentDescription(appointment.getAppointmentDescription());
+                        existingAppointment.setAppointmentLength(appointment.getAppointmentLength());
+
                         return appointmentRepository.save(existingAppointment);
                     })
                     .orElseThrow(() -> new ResourceNotFoundException("User with ID " + id +" not found"));
