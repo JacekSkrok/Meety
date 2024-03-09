@@ -4,7 +4,7 @@ export interface Appointment {
   appointmentId: number;
   appointmentName: string;
   appointmentDate: Date;
-  appointmentStartTime: Time;
+  appointmentStartTime: string;
   appointmentDescription: string;
   appointmentLength: number;
 }
