@@ -39,7 +39,7 @@
                                                 <p>{{ appointment.appointmentDate | date:'MMMM' }}</p>
                                             </div>
                                             <div class="time">
-                                                    <span>{{ appointment.appointmentStartTime }} {{appointment.appointmentLength}}'</span>
+                                                    <span>{{ appointment.appointmentStartTime.slice(0,5) }} {{appointment.appointmentLength}}'</span>
                                             </div>
                                         </th>
                                         <td>
