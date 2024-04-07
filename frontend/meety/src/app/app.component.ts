@@ -4,6 +4,7 @@ import { AppointmentService } from './appointment.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Host } from './host';
 import { HostService } from './host.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-root',
@@ -17,12 +18,14 @@ export class AppComponent implements OnInit {
 
   constructor(
     private appointmentService: AppointmentService,
-    private hostService: HostService
+    private hostService: HostService,
+    private router: Router
   ) {}
 
   ngOnInit(): void{
     this.getAppointments();
   }
+
 
   public getAppointments(): void{
     this.appointmentService.getAppointments().subscribe(
@@ -47,5 +50,9 @@ export class AppComponent implements OnInit {
         alert(error.message);
       }
     );
+  }
+
+  public navigateToMeetPage(id: number) {
+    this.router.navigate(['/meeting', id])
   }
 }
