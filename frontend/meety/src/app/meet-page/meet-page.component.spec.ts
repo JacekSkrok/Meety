@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AppComponent } from './app.component';
+import { MeetPageComponent } from './meet-page.component';
 
-describe('AppComponent', () => {
-  let component: AppComponent;
-  let fixture: ComponentFixture<AppComponent>;
+describe('MeetPageComponent', () => {
+  let component: MeetPageComponent;
+  let fixture: ComponentFixture<MeetPageComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [AppComponent]
+      declarations: [MeetPageComponent]
     });
-    fixture = TestBed.createComponent(AppComponent);
+    fixture = TestBed.createComponent(MeetPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
