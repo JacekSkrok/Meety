@@ -20,7 +20,7 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'host',
+    path: 'host/:id',
     component: HostComponent
   },
   {
