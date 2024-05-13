@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { MeetComponent } from './meet-page/meet-page/meet-page.component';
+import { MeetPageComponent } from './meet-page/meet-page.component';
 import { RouterModule, Routes, Route } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -25,7 +25,7 @@ const routes: Routes = [
   },
   {
     path: 'meeting/:id',
-    component: MeetComponent
+    component: MeetPageComponent
   }
 ];
 
