@@ -17,4 +17,8 @@ export class HostService {
       map((response: any) => response.speakers[0])
     );
   }
+
+  public getHost(hostId: number): Observable<Host> {
+    return this.http.get<Host>(`${this.apiServerUrl}/api/v1/hosts/${hostId}`);
+  }
 }
