@@ -53,6 +53,16 @@ export class HomeComponent implements OnInit {
   }
 
   public navigateToMeetPage(id: number) {
+    console.log('Navigating to meeting with id:', id);
     this.router.navigate(['/meeting', id])
   }
+
+  public navigateToHostPage(id: number | undefined) {
+    if (id !== undefined) {
+      this.router.navigate(['/host', id]);
+    } else {
+      // Handle the case when id is undefined, such as displaying an error message or navigating to a default route
+    }
+  }
+
 }

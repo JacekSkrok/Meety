@@ -1,0 +1,35 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.bg-color {
+  background-color: #91cce8; /* Adjust the color code as per your preference */
+}
+.blue-bar {
+  height: 5px;
+  background-color: #007bff;
+  margin-bottom: 20px;
+}
+.host-profile {
+  display: flex;
+  align-items: center;
+}
+.host-photo img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.host-bio {
+  padding-left: 20px;
+}
+.host-bio h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.host-bio p {
+  margin: 0;
+  color: #666;
+}
+
