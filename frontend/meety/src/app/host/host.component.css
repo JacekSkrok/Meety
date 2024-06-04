@@ -1,35 +1,83 @@
+body, html {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #91cce8; /* Light blue background for the entire page */
+}
+
 .container {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 50px auto 20px; /* Adjust margin to position the first container */
   padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-.bg-color {
-  background-color: #91cce8; /* Adjust the color code as per your preference */
-}
-.blue-bar {
-  height: 5px;
-  background-color: #007bff;
-  margin-bottom: 20px;
-}
+
 .host-profile {
   display: flex;
   align-items: center;
+  margin-bottom: 20px;
 }
+
 .host-photo img {
   width: 200px;
   height: 200px;
   border-radius: 50%;
   object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
+
 .host-bio {
   padding-left: 20px;
 }
+
 .host-bio h2 {
   margin-top: 0;
   margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: bold;
 }
+
 .host-bio p {
   margin: 0;
   color: #666;
+  font-size: 16px;
 }
 
+.container + .container {
+  margin-top: 20px; /* Add space between the two containers */
+}
+
+.appointments-section h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.appointments-list {
+  list-style: none;
+  padding: 0;
+}
+
+.appointments-list li {
+  background: #f8f9fa;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.appointments-list li:hover {
+  background-color: #e9ecef;
+}
+
+.appointment-date {
+  font-weight: bold;
+}
+
+.appointment-desc {
+  color: #555;
+}

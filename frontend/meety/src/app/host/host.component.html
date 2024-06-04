@@ -5,38 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Host Page</title>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <style>
-        .bg-color {
-            background-color: #f2f2f2; /* Adjust the color code as per your preference */
-        }
-        .container {
-            padding: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="host.component.css">
 </head>
 <body>
-    <div class="bg-color">
-        <div class="container">
-            <div class="blue-bar"></div>
-            <div class="host-profile">
-                <div class="host-photo">
-                    <img src="data:image/jpeg;base64, {{host.hostPhoto}}" alt="Image-photo" width="100" height="100"/>
-                </div>
-                <div class="host-bio">
-                    <h2>{{host.firstName}} {{host.lastName}}</h2>
-                    <p>{{host.hostBio}}</p>
-                </div>
+    <div class="container">
+        <div class="host-profile">
+            <div class="host-photo">
+                <img src="data:image/jpeg;base64, {{host.hostPhoto}}" alt="Host Photo"/>
+            </div>
+            <div class="host-bio">
+                <h2>{{host.firstName}} {{host.lastName}}</h2>
+                <p>{{host.hostBio}}</p>
             </div>
         </div>
-        <div class="container">
-          <div>
+    </div>
+    <div class="container">
+        <div class="appointments-section">
             <h3>Appointments</h3>
-            <ul>
-              <li *ngFor="let appointment of appointments">
-                <span>{{ appointment.appointmentDate| date }}</span> - {{ appointment.appointmentDescription }}
-              </li>
+            <ul class="appointments-list">
+                <li *ngFor="let appointment of appointments">
+                    <span class="appointment-date">{{ appointment.appointmentDate | date }}</span> -
+                    <span class="appointment-desc">{{ appointment.appointmentDescription }}</span>
+                </li>
             </ul>
-          </div>
         </div>
     </div>
 </body>
