@@ -15,4 +15,8 @@ export class AppointmentService {
   public getAppointments() : Observable<Appointment[]> {
     return this.http.get<Appointment[]>(`${this.apiServerUrl}/api/v1/appointments`);
   }
+
+  public getAllHostsAppointments(hostId: number) : Observable<Appointment[]> {
+    return this.http.get<Appointment[]>(`${this.apiServerUrl}/api/v1/appointments/host/${hostId}`);
+  }
 }

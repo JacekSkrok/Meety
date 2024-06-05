@@ -28,6 +28,11 @@ public class AppointmentsController {
         return appointmentRepository.findAll();
     }
 
+    @GetMapping("/host/{hostId}")
+    public List<Appointment> getAppointmentsByHostId(@PathVariable Long hostId) {
+        return appointmentRepository.findByHostId(hostId);
+    }
+
     @GetMapping
     @RequestMapping("{id}")
     public ResponseEntity<Appointment> get(@PathVariable Long id) throws ResourceNotFoundException {
